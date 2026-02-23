@@ -1,4 +1,5 @@
--- normal
+-- USE THIS LIBRARY ONLY IN COMBINATION WITH AN OFFICIAL LOADSTRING AFTERWARDS
+-- THIS LIBRARY IS NOT SECURED
 
 local HttpService = game:GetService("HttpService")
 local httpRequest = (syn and syn.request) or request or http_request
