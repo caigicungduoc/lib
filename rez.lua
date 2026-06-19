@@ -322,7 +322,6 @@ do
 	
 -- modify this
 local I
-local I
 function D:Draggable(J, K, L, noGhost)
     local M, N, O, P
     local Q = K or 0.28
@@ -357,6 +356,8 @@ function D:Draggable(J, K, L, noGhost)
         end
     end
     
+    local currentPos
+    
     local T = function(T)
         local U = T.Position - N
         local V
@@ -368,7 +369,10 @@ function D:Draggable(J, K, L, noGhost)
         end
         if ghostOutline then
             ghostOutline.Position = V
+        else
+            self.Position = V
         end
+        currentPos = V
     end
     
     local U = function()
@@ -394,6 +398,7 @@ function D:Draggable(J, K, L, noGhost)
         if A == false and I == nil and V[X.UserInputType] then
             N = X.Position
             O = self.Position
+            currentPos = self.Position
             I = self
             R = tick()
             A = true
@@ -413,7 +418,7 @@ function D:Draggable(J, K, L, noGhost)
                     removeGhost()
                     self.Position = finalPos
                 else
-                    self.Position = self.Position
+                    self.Position = currentPos
                 end
             end
             task.spawn(U)
