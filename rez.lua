@@ -1,6 +1,7 @@
 local a = cloneref or (function(...)
 	return ...
 end)
+-- 2
 local b = delfolder or deletefolder
 local c = delfile or deletefile
 local d = makefolder
@@ -2634,7 +2635,7 @@ a7)
     local btnType = (av.Text and av.Text ~= "") and "TextButton" or "ImageButton"
     local aw = E(btnType, I, {
         Size = av.Size or UDim2.fromOffset(35, 35),
-        Position = UDim2.fromScale(0.17, 0.28),
+        Position = av.Position or UDim2.fromScale(0.17, 0.28),
         AnchorPoint = Vector2.new(0.5, 0.5),
         AutoButtonColor = false,
         BackgroundColor3 = av.BackgroundColor3 or Color3.fromRGB(88, 101, 242),
@@ -2663,7 +2664,7 @@ a7)
     u(aw.Activated, function()
         ag:Minimize()
     end)
-    D.Draggable(aw, ad, 0.5, true)
+    D.Draggable(aw, ad, 0.5, nil, true)
     return aw
 end
 	function aj:SetKeyCode(av)
