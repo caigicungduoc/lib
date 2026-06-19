@@ -322,7 +322,8 @@ do
 	
 -- modify this
 local I
-function D:Draggable(J, K, L)
+local I
+function D:Draggable(J, K, L, noGhost)
     local M, N, O, P
     local Q = K or 0.28
     local R = 0
@@ -397,7 +398,9 @@ function D:Draggable(J, K, L)
             R = tick()
             A = true
             
-            createGhost()
+            if not noGhost then
+                createGhost()
+            end
             
             local Y;
             function S()
@@ -409,6 +412,8 @@ function D:Draggable(J, K, L)
                     local finalPos = ghostOutline.Position
                     removeGhost()
                     self.Position = finalPos
+                else
+                    self.Position = self.Position
                 end
             end
             task.spawn(U)
@@ -2621,31 +2626,31 @@ a7)
 	ai.SetContent = ai.SetDescription
 	ai.SetDesc = ai.SetDescription
 	function aj:CreateMobileMinimizer(av)
-		local aw = E("ImageButton", I, {
-			Size = UDim2.fromOffset(35, 35),
-			Position = UDim2.fromScale(0.17, 0.28),
-			AnchorPoint = Vector2.new(0.5, 0.5),
-			AutoButtonColor = false,
-			ThemeTag = {
-				BackgroundColor3 = "Colors.Buttons.Default"
-			}
-		})
-		u(aw.Activated, function()
-			ag:Minimize()
-		end)
-		av.Elements = {}
-		if av.Corner then
-			av.Elements.Corner = av.Corner
-			av.Corner = nil
-		end
-		if av.Stroke then
-			av.Elements.Stroke = av.Stroke
-			av.Stroke = nil
-		end
-		D.Draggable(aw, ad, 0.5)
-		D.SetProperties(aw, av)
-		return aw
-	end
+    local aw = E("ImageButton", I, {
+        Size = UDim2.fromOffset(35, 35),
+        Position = UDim2.fromScale(0.17, 0.28),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        AutoButtonColor = false,
+        ThemeTag = {
+            BackgroundColor3 = "Colors.Buttons.Default"
+        }
+    })
+    u(aw.Activated, function()
+        ag:Minimize()
+    end)
+    av.Elements = {}
+    if av.Corner then
+        av.Elements.Corner = av.Corner
+        av.Corner = nil
+    end
+    if av.Stroke then
+        av.Elements.Stroke = av.Stroke
+        av.Stroke = nil
+    end
+    D.Draggable(aw, ad, 0.5, true)
+    D.SetProperties(aw, av)
+    return aw
+end
 	function aj:SetKeyCode(av)
 		assert(au(av), "1791675917")
 		self.KeyCode = av
