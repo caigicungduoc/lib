@@ -2626,29 +2626,39 @@ a7)
 	ai.SetContent = ai.SetDescription
 	ai.SetDesc = ai.SetDescription
 	function aj:CreateMobileMinimizer(av)
-    local aw = E("ImageButton", I, {
-        Size = UDim2.fromOffset(35, 35),
+    local btnType = (av.Text and av.Text ~= "") and "TextButton" or "ImageButton"
+    local aw = E(btnType, I, {
+        Size = av.Size or UDim2.fromOffset(35, 35),
         Position = UDim2.fromScale(0.17, 0.28),
         AnchorPoint = Vector2.new(0.5, 0.5),
         AutoButtonColor = false,
+        BackgroundColor3 = av.BackgroundColor3 or Color3.fromRGB(88, 101, 242),
         ThemeTag = {
             BackgroundColor3 = "Colors.Buttons.Default"
         }
     })
+    if btnType == "TextButton" then
+        aw.Text = av.Text or ""
+        aw.TextColor3 = av.TextColor3 or Color3.fromRGB(255, 255, 255)
+        aw.TextSize = av.TextSize or 16
+        if av.Font then
+            aw.Font = av.Font
+        end
+    end
+    if av.Corner then
+        local corner = Instance.new("UICorner")
+        corner.CornerRadius = av.Corner
+        corner.Parent = aw
+    end
+    if av.Stroke then
+        local stroke = Instance.new("UIStroke")
+        D.SetProperties(stroke, av.Stroke)
+        stroke.Parent = aw
+    end
     u(aw.Activated, function()
         ag:Minimize()
     end)
-    av.Elements = {}
-    if av.Corner then
-        av.Elements.Corner = av.Corner
-        av.Corner = nil
-    end
-    if av.Stroke then
-        av.Elements.Stroke = av.Stroke
-        av.Stroke = nil
-    end
     D.Draggable(aw, ad, 0.5, true)
-    D.SetProperties(aw, av)
     return aw
 end
 	function aj:SetKeyCode(av)
