@@ -328,23 +328,25 @@ function D:Draggable(J, K, L)
     local R = 0
     local S
     
-    -- TẠO VIỀN GHOST
     local ghostOutline
     local function createGhost()
         ghostOutline = Instance.new("Frame")
         ghostOutline.Name = "DragGhost"
         ghostOutline.Size = self.Size
         ghostOutline.Position = self.Position
-        ghostOutline.BackgroundTransparency = 0.85
-        ghostOutline.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
-        ghostOutline.BorderSizePixel = 2
-        ghostOutline.BorderColor3 = Color3.fromRGB(255, 255, 255)
+        ghostOutline.BackgroundTransparency = 1
         ghostOutline.ZIndex = 10
         ghostOutline.Parent = self.Parent
         
         local corner = Instance.new("UICorner")
         corner.CornerRadius = UDim.new(0, 8)
         corner.Parent = ghostOutline
+        
+        local stroke = Instance.new("UIStroke")
+        stroke.Color = Color3.fromRGB(88, 101, 242)
+        stroke.Thickness = 2
+        stroke.Transparency = 0
+        stroke.Parent = ghostOutline
     end
     
     local function removeGhost()
@@ -424,14 +426,14 @@ function D:Draggable(J, K, L)
         end
     end)
 end
-	
-	function D:CreateNewTemplate(J)
-		return D.CloneObject(F[self], J)
-	end
-	function D.new(J, ...)
-		return D.SetValues(Instance.new(J), ...)
-	end
-	E = D.new
+
+function D:CreateNewTemplate(J)
+    return D.CloneObject(F[self], J)
+end
+function D.new(J, ...)
+    return D.SetValues(Instance.new(J), ...)
+end
+E = D.new
 end
 local F = function(
 
