@@ -618,7 +618,7 @@ do
 				AutoButtonColor = false,
 				Size = UDim2.fromScale(0.2, 1),
 				BackgroundTransparency = 1,
-				TextSize = 10,
+				TextSize = 13,
 				Text = av,
 				Elements = {
 					Corner = UDim.new(1, 0)
@@ -814,7 +814,7 @@ al, am, an)
 					BackgroundTransparency = 1,
 					Font = Enum.Font.GothamMedium,
 					Text = am.Title,
-					TextSize = 10,
+					TextSize = 13,
 					TextXAlignment = Enum.TextXAlignment.Left,
 					TextTransparency = (FirstTab and 0.3) or 0,
 					TextTruncate = Enum.TextTruncate.AtEnd,
@@ -893,7 +893,7 @@ am, an, ao, ap)
 			Position = UDim2.fromScale(0, 0.5),
 			AnchorPoint = Vector2.new(0, 0.5),
 			BackgroundTransparency = 1,
-			TextSize = 11,
+			TextSize = 14,
 			ThemeTag = {
 				OBJECTS = C,
 				TextColor3 = "Colors.Text.Default",
@@ -909,7 +909,7 @@ am, an, ao, ap)
 			Position = UDim2.new(0, 12, 0, 15),
 			BackgroundTransparency = 1,
 			TextWrapped = true,
-			TextSize = 8,
+			TextSize = 12,
 			RichText = true,
 			ThemeTag = {
 				OBJECTS = ar,
@@ -1349,7 +1349,7 @@ a_, a0)
 						BackgroundTransparency = 1,
 						TextTransparency = 0.4,
 						Text = a_.DisplayName,
-						TextSize = 9,
+						TextSize = 12,
 						ThemeTag = {
 							Font = "Font.Bold",
 							TextColor3 = "Colors.Text.Default"
@@ -1980,7 +1980,7 @@ aV, aW)
 			TextColor3 = Color3.fromRGB(40, 150, 255),
 			TextXAlignment = Enum.TextXAlignment.Left,
 			BackgroundTransparency = 1,
-			TextSize = 9,
+			TextSize = 12,
 			Text = aC,
 			ThemeTag = {
 				OBJECTS = aD,
@@ -2064,7 +2064,7 @@ aM, aN)
 							AnchorPoint = Vector2.new(0, 0.5),
 							AutomaticSize = Enum.AutomaticSize.X,
 							BackgroundTransparency = 1,
-							TextSize = 7,
+							TextSize = 11,
 							Text = aN,
 							ThemeTag = {
 								OBJECTS = aD,
@@ -2088,7 +2088,7 @@ aM, aN)
 			TextXAlignment = Enum.TextXAlignment.Left,
 			AutomaticSize = Enum.AutomaticSize.Y,
 			BackgroundTransparency = 1,
-			TextSize = 8,
+			TextSize = 12,
 			Text = ax or "",
 			TextWrapped = true,
 			ThemeTag = {
@@ -3522,7 +3522,7 @@ al, am, an)
 				BackgroundTransparency = 1,
 				TextXAlignment = "Left",
 				TextYAlignment = "Bottom",
-				TextSize = 8,
+				TextSize = 11,
 				ThemeTag = {
 					TextColor3 = "Colors.Text.Dark",
 					Font = "Font.Normal"
